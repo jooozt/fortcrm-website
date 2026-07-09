@@ -2,6 +2,7 @@ title: FortCRM
 description: "Security first AI powered CRM agency — snel, simpel en goed."
 url: "https://fortcrm.nl"
 permalink: /blog/:title/
+timezone: Europe/Amsterdam
 
 # Files/folders Jekyll should leave completely alone
 exclude:
