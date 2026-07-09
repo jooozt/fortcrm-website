@@ -5,8 +5,22 @@
     <!-- TODO: vervang [KVK-nummer] zodra bekend -->
     <span class="font-mono">KVK: [KVK-nummer] · SBI 62.02 / 70.22</span>
     <span>© 2026 FortCRM</span>
+    <button id="cookie-settings-link" class="underline hover:text-inkt transition-colors">Cookievoorkeuren</button>
   </div>
 </footer>
+
+<!-- ============ COOKIEBANNER ============ -->
+<div id="cookie-banner" class="fixed inset-x-0 bottom-0 z-50 hidden bg-krijt/95 backdrop-blur border-t border-inkt/10">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center gap-4 text-sm">
+    <p class="text-inkt/70 flex-1">
+      We gebruiken alleen analytics-cookies met jouw toestemming, om te begrijpen hoe bezoekers de site gebruiken. Geen marketing- of trackingcookies van derden.
+    </p>
+    <div class="flex items-center gap-3 flex-shrink-0">
+      <button id="cookie-decline" class="text-sm font-medium text-inkt/70 hover:text-inkt transition-colors">Weigeren</button>
+      <button id="cookie-accept" class="btn btn-sm border-none bg-vermiljoen hover:bg-vermiljoen/90 text-inkt font-semibold normal-case rounded-full px-5">Accepteren</button>
+    </div>
+  </div>
+</div>
 
 <!-- Mobile menu toggle -->
 <script>
@@ -41,4 +55,30 @@
       localStorage.setItem('fortcrm-theme', dark ? 'dark' : 'light');
     });
   });
+</script>
+
+<!-- Cookiebanner (analytics-toestemming) -->
+<script>
+  (function () {
+    var banner = document.getElementById('cookie-banner');
+    var acceptBtn = document.getElementById('cookie-accept');
+    var declineBtn = document.getElementById('cookie-decline');
+    var settingsLink = document.getElementById('cookie-settings-link');
+
+    function setConsent(granted) {
+      localStorage.setItem('fortcrm-consent', granted ? 'granted' : 'denied');
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' });
+      }
+      banner.classList.add('hidden');
+    }
+
+    if (!localStorage.getItem('fortcrm-consent')) {
+      banner.classList.remove('hidden');
+    }
+
+    acceptBtn.addEventListener('click', function () { setConsent(true); });
+    declineBtn.addEventListener('click', function () { setConsent(false); });
+    settingsLink.addEventListener('click', function () { banner.classList.remove('hidden'); });
+  })();
 </script>

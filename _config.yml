@@ -4,6 +4,9 @@ url: "https://fortcrm.nl"
 permalink: /blog/:title/
 timezone: Europe/Amsterdam
 
+# Vul in zodra de GA4-property is aangemaakt (Beheer > Gegevensstromen > je stream)
+google_analytics_id: ""
+
 # Files/folders Jekyll should leave completely alone
 exclude:
   - README.md
