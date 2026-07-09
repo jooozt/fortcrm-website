@@ -6,7 +6,8 @@ layout: default
 
   <p class="font-mono text-xs tracking-[0.2em] text-viridiaan uppercase mt-8 mb-4">
     {% assign maanden = "januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december" | split: "," %}
-    {{ page.date | date: "%-d" }} {{ maanden[page.date | date: "%-m" | minus: 1] }} {{ page.date | date: "%Y" }}
+    {% assign maand_index = page.date | date: "%-m" | minus: 1 %}
+    {{ page.date | date: "%-d" }} {{ maanden[maand_index] }} {{ page.date | date: "%Y" }}
   </p>
   <h1 class="font-display font-bold text-3xl md:text-4xl leading-tight mb-10">{{ page.title }}</h1>
 
