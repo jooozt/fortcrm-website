@@ -31,3 +31,14 @@
     link.addEventListener('click', closeMenu);
   });
 </script>
+
+<!-- Dark mode toggle -->
+<script>
+  document.querySelectorAll('.theme-toggle-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var dark = !document.documentElement.classList.contains('dark');
+      document.documentElement.classList.toggle('dark', dark);
+      localStorage.setItem('fortcrm-theme', dark ? 'dark' : 'light');
+    });
+  });
+</script>

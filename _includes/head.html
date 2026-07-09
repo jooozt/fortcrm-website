@@ -3,6 +3,15 @@
 <title>{{ page.title | default: site.title }}{% unless page.title == site.title %} — FortCRM{% endunless %}</title>
 <meta name="description" content="{{ page.description | default: site.description }}">
 
+<!-- Set the theme before first paint, so there's no flash of the wrong colors -->
+<script>
+  (function () {
+    var stored = localStorage.getItem('fortcrm-theme');
+    var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (dark) document.documentElement.classList.add('dark');
+  })();
+</script>
+
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +24,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
+    darkMode: 'class',
     theme: {
       extend: {
         colors: {
@@ -22,8 +32,8 @@
           salie: '#5B8073',
           vermiljoen: '#DB7F28',
           oker: '#D99F3C',
-          inkt: '#1D211C',
-          krijt: '#F0EEE4',
+          inkt: 'rgb(var(--color-inkt) / <alpha-value>)',
+          krijt: 'rgb(var(--color-krijt) / <alpha-value>)',
         },
         fontFamily: {
           display: ['"Space Grotesk"', 'sans-serif'],
@@ -36,7 +46,18 @@
 </script>
 
 <style>
+  :root {
+    --color-krijt: 240 238 228;
+    --color-inkt: 29 33 28;
+    color-scheme: light;
+  }
+  .dark {
+    --color-krijt: 29 33 28;
+    --color-inkt: 240 238 228;
+    color-scheme: dark;
+  }
   html { scroll-behavior: smooth; }
+  body { transition: background-color .15s ease, color .15s ease; }
   section[id] { scroll-margin-top: 88px; }
   body { font-family: 'Inter', sans-serif; }
   h1, h2, h3, .font-display { font-family: 'Space Grotesk', sans-serif; }
@@ -44,21 +65,25 @@
   summary::-webkit-details-marker { display: none; }
   summary { list-style: none; }
   .mobile-link { padding-bottom: 0.5rem; border-bottom: 1px solid rgba(29,33,28,0.1); }
+  .dark .mobile-link { border-bottom-color: rgba(240,238,228,0.1); }
 
-  /* tiled hex-grid texture — Krijt-colored lines, lighter than the dark Inkt hero background */
+  /* tiled hex-grid texture — lighter-than-background lines on the dark Inkt hero; flips when the hero inverts in dark mode */
   .hex-texture {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='48'%3E%3Cg fill='none' stroke='%23F0EEE4' stroke-opacity='0.12' stroke-width='1.4'%3E%3Cpolygon points='21,2 39,12 39,32 21,42 3,32 3,12'/%3E%3Cpolygon points='63,2 81,12 81,32 63,42 45,32 45,12'/%3E%3Cpolygon points='0,24 18,34 18,54 0,64 -18,54 -18,34'/%3E%3Cpolygon points='84,24 102,34 102,54 84,64 66,54 66,34'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 84px 48px;
+  }
+  .dark .hex-texture {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='48'%3E%3Cg fill='none' stroke='%231D211C' stroke-opacity='0.12' stroke-width='1.4'%3E%3Cpolygon points='21,2 39,12 39,32 21,42 3,32 3,12'/%3E%3Cpolygon points='63,2 81,12 81,32 63,42 45,32 45,12'/%3E%3Cpolygon points='0,24 18,34 18,54 0,64 -18,54 -18,34'/%3E%3Cpolygon points='84,24 102,34 102,54 84,64 66,54 66,34'/%3E%3C/g%3E%3C/svg%3E");
   }
 
   /* basic markdown styling for blog post bodies */
   .prose-post h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.75rem; }
   .prose-post h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-  .prose-post p { margin-bottom: 1.25rem; line-height: 1.75; color: rgba(29,33,28,0.8); }
+  .prose-post p { margin-bottom: 1.25rem; line-height: 1.75; color: rgb(var(--color-inkt) / 0.8); }
   .prose-post ul, .prose-post ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
   .prose-post li { margin-bottom: 0.5rem; line-height: 1.7; }
   .prose-post ul { list-style-type: disc; }
   .prose-post ol { list-style-type: decimal; }
   .prose-post a { color: #2C6C4F; text-decoration: underline; }
-  .prose-post strong { font-weight: 600; color: #1D211C; }
+  .prose-post strong { font-weight: 600; color: rgb(var(--color-inkt)); }
 </style>
