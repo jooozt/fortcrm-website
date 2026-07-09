@@ -9,9 +9,10 @@ permalink: /blog/
   <h1 class="font-display font-bold text-3xl md:text-5xl max-w-xl mb-14">Inzichten over CRM &amp; automatisering</h1>
 
   <div class="grid md:grid-cols-2 gap-8">
+    {% assign maanden = "januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december" | split: "," %}
     {% for post in site.posts %}
     <a href="{{ post.url }}" class="block rounded-2xl border border-inkt/15 p-8 hover:border-viridiaan transition-colors">
-      <p class="font-mono text-xs text-inkt/50 mb-3">{{ post.date | date: "%-d %B %Y" }}</p>
+      <p class="font-mono text-xs text-inkt/50 mb-3">{{ post.date | date: "%-d" }} {{ maanden[post.date | date: "%-m" | minus: 1] }} {{ post.date | date: "%Y" }}</p>
       <h2 class="font-display font-semibold text-xl mb-3">{{ post.title }}</h2>
       {% if post.excerpt %}
       <p class="text-inkt/70 leading-relaxed">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
