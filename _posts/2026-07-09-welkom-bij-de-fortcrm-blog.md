@@ -2,6 +2,7 @@
 layout: post
 title: "Welkom bij de FortCRM-blog"
 date: 2026-07-09
+description: "Vanaf vandaag delen we hier regelmatig inzichten over CRM-implementatie, AI-automatisering en hoe het Nederlandse MKB daar praktisch mee aan de slag kan."
 lang: nl
 translation_url: /en/blog/welcome-to-the-fortcrm-blog/
 ---

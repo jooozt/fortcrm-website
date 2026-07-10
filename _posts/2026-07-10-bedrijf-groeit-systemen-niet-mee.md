@@ -5,6 +5,7 @@ date: 2026-07-10
 categories: [crm, mkb]
 tags: [pipedrive, offertes, digitalisering]
 excerpt: "Excel dat nooit helemaal klopt, offertes in Word, klantcontact verspreid over een overvolle inbox. Waarom dit patroon zo hardnekkig is, en waar het anders kan beginnen."
+description: "Excel dat nooit helemaal klopt, offertes in Word, klantcontact verspreid over een overvolle inbox. Waarom dit patroon zo hardnekkig is, en waar het anders kan beginnen."
 lang: nl
 translation_url: /en/blog/your-business-is-growing-your-systems-arent/
 ---
