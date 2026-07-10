@@ -5,6 +5,8 @@ date: 2026-07-10
 categories: [crm, mkb]
 tags: [pipedrive, offertes, digitalisering]
 excerpt: "Excel dat nooit helemaal klopt, offertes in Word, klantcontact verspreid over een overvolle inbox. Waarom dit patroon zo hardnekkig is, en waar het anders kan beginnen."
+lang: nl
+translation_url: /en/blog/your-business-is-growing-your-systems-arent/
 ---
 
 Het is dinsdagochtend. De telefoon gaat. Een klant die je drie maanden geleden een offerte stuurde, wil weten waar die nou precies over ging. Jij opent Outlook, scrolt door tientallen mails, vindt uiteindelijk een Word-document met de naam "offerte_definitief_v3_ECHTdefinitief.docx". Terwijl je zoekt, denk je: heb ik deze klant al gebeld voor opvolging? Geen idee. Dat stond nergens.

@@ -2,12 +2,22 @@
 layout: default
 ---
 <article class="max-w-3xl mx-auto px-6 py-20">
+  {% if page.lang == "en" %}
+  <a href="/en/blog/" class="text-sm font-medium text-viridiaan hover:text-inkt transition-colors">← Back to the blog</a>
+  {% else %}
   <a href="/blog/" class="text-sm font-medium text-viridiaan hover:text-inkt transition-colors">← Terug naar het blog</a>
+  {% endif %}
 
   <p class="font-mono text-xs tracking-[0.2em] text-viridiaan uppercase mt-8 mb-4">
+    {% if page.lang == "en" %}
+    {% assign months = "January,February,March,April,May,June,July,August,September,October,November,December" | split: "," %}
+    {% assign month_index = page.date | date: "%-m" | minus: 1 %}
+    {{ months[month_index] }} {{ page.date | date: "%-d" }}, {{ page.date | date: "%Y" }}
+    {% else %}
     {% assign maanden = "januari,februari,maart,april,mei,juni,juli,augustus,september,oktober,november,december" | split: "," %}
     {% assign maand_index = page.date | date: "%-m" | minus: 1 %}
     {{ page.date | date: "%-d" }} {{ maanden[maand_index] }} {{ page.date | date: "%Y" }}
+    {% endif %}
   </p>
   <h1 class="font-display font-bold text-3xl md:text-4xl leading-tight mb-10">{{ page.title }}</h1>
 

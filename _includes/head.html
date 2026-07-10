@@ -1,8 +1,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ page.title | default: site.title }}{% unless page.url == "/" %} | FortCRM{% endunless %}</title>
+<title>{{ page.title | default: site.title }}{% unless page.url == "/" or page.url == "/en/" %} | FortCRM{% endunless %}</title>
 <meta name="description" content="{{ page.description | default: site.description }}">
 <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+
+{% if page.translation_url %}
+{% assign fortcrm_cur_lang = page.lang | default: "nl" %}
+{% assign fortcrm_alt_lang = "en" %}
+{% if fortcrm_cur_lang == "en" %}{% assign fortcrm_alt_lang = "nl" %}{% endif %}
+<link rel="alternate" hreflang="{{ fortcrm_cur_lang }}" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" hreflang="{{ fortcrm_alt_lang }}" href="{{ site.url }}{{ page.translation_url }}">
+{% endif %}
 
 {% if site.google_analytics_id %}
 <!-- Google Analytics (Consent Mode v2 — geen data tot bezoeker via de cookiebanner toestemming geeft) -->

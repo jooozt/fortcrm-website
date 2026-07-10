@@ -1,10 +1,23 @@
+{% assign footer_lang = page.lang | default: "nl" %}
+{% if footer_lang == "en" %}
+  {% assign t_cookie_prefs = "Cookie preferences" %}
+  {% assign t_cookie_text = "We only use analytics cookies with your consent, to understand how visitors use the site. No marketing or third-party tracking cookies." %}
+  {% assign t_cookie_decline = "Decline" %}
+  {% assign t_cookie_accept = "Accept" %}
+{% else %}
+  {% assign t_cookie_prefs = "Cookievoorkeuren" %}
+  {% assign t_cookie_text = "We gebruiken alleen analytics-cookies met jouw toestemming, om te begrijpen hoe bezoekers de site gebruiken. Geen marketing- of trackingcookies van derden." %}
+  {% assign t_cookie_decline = "Weigeren" %}
+  {% assign t_cookie_accept = "Accepteren" %}
+{% endif %}
+
 <!-- ============ FOOTER ============ -->
 <footer class="bg-krijt text-inkt/60 py-6 border-t border-inkt/10">
   <div class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-center md:justify-between gap-x-4 gap-y-2 text-xs text-center">
     <span class="font-display font-semibold text-inkt text-sm">FortCRM</span>
     <span class="font-mono">KVK: 42105837 · SBI 62.02 / 70.22</span>
     <span>© 2026 FortCRM</span>
-    <button id="cookie-settings-link" class="underline hover:text-inkt transition-colors">Cookievoorkeuren</button>
+    <button id="cookie-settings-link" class="underline hover:text-inkt transition-colors">{{ t_cookie_prefs }}</button>
   </div>
 </footer>
 
@@ -12,11 +25,11 @@
 <div id="cookie-banner" class="fixed inset-x-0 bottom-0 z-50 hidden bg-krijt/95 backdrop-blur border-t border-inkt/10">
   <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center gap-4 text-sm">
     <p class="text-inkt/70 flex-1">
-      We gebruiken alleen analytics-cookies met jouw toestemming, om te begrijpen hoe bezoekers de site gebruiken. Geen marketing- of trackingcookies van derden.
+      {{ t_cookie_text }}
     </p>
     <div class="flex items-center gap-3 flex-shrink-0">
-      <button id="cookie-decline" class="text-sm font-medium text-inkt/70 hover:text-inkt transition-colors">Weigeren</button>
-      <button id="cookie-accept" class="btn btn-sm border-none bg-vermiljoen hover:bg-vermiljoen/90 text-inkt font-semibold normal-case rounded-full px-5">Accepteren</button>
+      <button id="cookie-decline" class="text-sm font-medium text-inkt/70 hover:text-inkt transition-colors">{{ t_cookie_decline }}</button>
+      <button id="cookie-accept" class="btn btn-sm border-none bg-vermiljoen hover:bg-vermiljoen/90 text-inkt font-semibold normal-case rounded-full px-5">{{ t_cookie_accept }}</button>
     </div>
   </div>
 </div>
