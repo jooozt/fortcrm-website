@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="300"
+   height="80"
+   viewBox="0 0 300 80"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>FortCRM</title>
+
+  <!-- Merkicoon, geschaald en verticaal gecentreerd op het canvas -->
+  <g transform="translate(0,8) scale(0.070707)">
+    <g transform="translate(-143.13014,-47.645)">
+      <path fill="none" stroke="#1D211C" stroke-width="87.9632" stroke-linecap="round" stroke-linejoin="round"
+        transform="matrix(0.78919167,0,0,0.80243733,500.35252,500.36271)"
+        d="M -74.002289,428.806 C -188.17015,360.97979 -293.63716,306.30918 -408.66177,239.89969 l 0.0272,-480.39322 c 94.37252,-54.04829 141.17492,-77.20878 233.98856,-133.81945 m 245.295337,-53.75434 338.329233,187.54453 -1e-5,480.57826 c -94.07437,54.31912 -150.09939,79.05456 -244.18579,133.35349"/>
+      <path fill="none" stroke="#1D211C" stroke-width="50"
+        d="m 542.96143,903.04408 a 50.091427,50.091423 30 0 1 -68.42616,18.33473 50.091427,50.091423 30 0 1 -18.33474,-68.42616 50.091427,50.091423 30 0 1 68.42616,-18.33473 50.091427,50.091423 30 0 1 18.33474,68.42616 z"/>
+      <path fill="none" stroke="#1D211C" stroke-width="50"
+        transform="translate(0.41902011,-755.37095)"
+        d="m 542.96143,903.04408 a 50.091427,50.091423 30 0 1 -68.42616,18.33473 50.091427,50.091423 30 0 1 -18.33474,-68.42616 50.091427,50.091423 30 0 1 68.42616,-18.33473 50.091427,50.091423 30 0 1 18.33474,68.42616 z"/>
+      <rect fill="#1D211C" stroke="#1D211C" stroke-width="1.09949" stroke-linejoin="round"
+        width="300" height="102.75375" x="806.78595" y="710.20972" ry="8.7757597" rx="9.4862862"
+        transform="matrix(1,0,-0.56187757,0.82722041,0,0)"/>
+      <rect fill="#1D211C" stroke="#1D211C" stroke-width="1.09949" stroke-linejoin="round"
+        width="300" height="102.75375" x="806.78595" y="710.20972" ry="8.7757597" rx="9.4862862"
+        transform="translate(-28.867601,-130) matrix(1,0,-0.56187757,0.82722041,0,0)"/>
+      <rect fill="#1D211C" stroke="#1D211C" stroke-width="1.09949" stroke-linejoin="round"
+        width="300" height="102.75375" x="806.78595" y="710.20972" ry="8.7757597" rx="9.4862862"
+        transform="translate(-49.999968,-259.28113) matrix(1,0,-0.56187757,0.82722041,0,0)"/>
+    </g>
+  </g>
+
+  <!-- Wordmark: "Fort" bold, "CRM" light, in Space Grotesk -->
+  <text x="65" y="55" font-family="'Space Grotesk', sans-serif" font-size="42" letter-spacing="-0.5">
+    <tspan font-weight="700" fill="#1D211C">Fort</tspan><tspan font-weight="300" fill="#2C6C4F">CRM</tspan>
+  </text>
+</svg>
