@@ -7,7 +7,7 @@ Vanaf vandaag delen we hier regelmatig inzichten over CRM-implementatie, AI-auto
 
 ## Waarom dit blog er is
 
-Geen buzzwords, geen verkooppraatjes — gewoon concrete lessen uit de praktijk van CRM-implementaties bij het MKB, niche-consultancy en ledenorganisaties.
+Geen buzzwords, geen verkooppraatjes, gewoon concrete lessen uit de praktijk van CRM-implementaties bij het MKB, niche-consultancy en ledenorganisaties.
 
 ## Wat je kan verwachten
 

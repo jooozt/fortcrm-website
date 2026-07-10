@@ -3,11 +3,13 @@
 <head>
 {% include head.html %}
 </head>
-<body class="bg-krijt text-inkt antialiased">
+<body class="bg-krijt text-inkt antialiased min-h-screen flex flex-col">
 
 {% include nav.html %}
 
+<main class="flex-1">
 {{ content }}
+</main>
 
 {% include footer.html %}
 </body>

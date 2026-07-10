@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ page.title | default: site.title }}{% unless page.title == site.title %} — FortCRM{% endunless %}</title>
+<title>{{ page.title | default: site.title }}{% unless page.url == "/" %} | FortCRM{% endunless %}</title>
 <meta name="description" content="{{ page.description | default: site.description }}">
 <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
 
@@ -53,6 +53,7 @@
           salie: '#5B8073',
           vermiljoen: '#DB7F28',
           oker: '#D99F3C',
+          omber: '#8B5E3C',
           inkt: 'rgb(var(--color-inkt) / <alpha-value>)',
           krijt: 'rgb(var(--color-krijt) / <alpha-value>)',
         },
