@@ -4,20 +4,61 @@
   {% assign t_cookie_text = "We only use analytics cookies with your consent, to understand how visitors use the site. No marketing or third-party tracking cookies." %}
   {% assign t_cookie_decline = "Decline" %}
   {% assign t_cookie_accept = "Accept" %}
+  {% assign t_footer_company = "Company details" %}
+  {% assign t_footer_follow = "Follow us" %}
+  {% assign t_footer_linkedin = "FortCRM on LinkedIn" %}
+  {% assign t_footer_blog = "Latest articles" %}
+  {% assign t_footer_blog_all = "All articles" %}
+  {% assign t_footer_blog_url = "/en/blog/" %}
 {% else %}
   {% assign t_cookie_prefs = "Cookievoorkeuren" %}
   {% assign t_cookie_text = "We gebruiken alleen analytics-cookies met jouw toestemming, om te begrijpen hoe bezoekers de site gebruiken. Geen marketing- of trackingcookies van derden." %}
   {% assign t_cookie_decline = "Weigeren" %}
   {% assign t_cookie_accept = "Accepteren" %}
+  {% assign t_footer_company = "Bedrijfsgegevens" %}
+  {% assign t_footer_follow = "Volg ons" %}
+  {% assign t_footer_linkedin = "FortCRM op LinkedIn" %}
+  {% assign t_footer_blog = "Laatste artikelen" %}
+  {% assign t_footer_blog_all = "Alle artikelen" %}
+  {% assign t_footer_blog_url = "/blog/" %}
 {% endif %}
 
+{% assign footer_posts = site.posts | where: "lang", footer_lang | limit: 3 %}
+
 <!-- ============ FOOTER ============ -->
-<footer class="bg-krijt text-inkt/60 py-6 border-t border-inkt/10">
-  <div class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-center md:justify-between gap-x-4 gap-y-2 text-xs text-center">
-    <span class="font-display font-semibold text-inkt text-sm">FortCRM</span>
-    <span class="font-mono">KVK: 42105837 · SBI 62.02 / 70.22</span>
-    <span>© 2026 FortCRM</span>
-    <button id="cookie-settings-link" class="underline hover:text-inkt transition-colors">{{ t_cookie_prefs }}</button>
+<footer class="bg-krijt text-inkt border-t border-inkt/10">
+  <div class="max-w-6xl mx-auto px-6 py-16 grid gap-12 sm:grid-cols-3">
+    <div>
+      <p class="font-mono text-xs tracking-[0.2em] text-viridiaan uppercase mb-4">{{ t_footer_company }}</p>
+      <p class="font-display font-semibold text-inkt text-base mb-2">FortCRM</p>
+      <p class="text-sm text-inkt/60 leading-relaxed">KVK: 42105837<br>SBI 62.02 / 70.22</p>
+    </div>
+
+    <div>
+      <p class="font-mono text-xs tracking-[0.2em] text-viridiaan uppercase mb-4">{{ t_footer_follow }}</p>
+      <!-- TODO: vervang href door de FortCRM LinkedIn-bedrijfspagina -->
+      <a href="#" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm text-inkt/60 hover:text-inkt transition-colors">
+        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current flex-shrink-0" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.446-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        {{ t_footer_linkedin }}
+      </a>
+    </div>
+
+    <div>
+      <p class="font-mono text-xs tracking-[0.2em] text-viridiaan uppercase mb-4">{{ t_footer_blog }}</p>
+      <ul class="space-y-3">
+        {% for post in footer_posts %}
+        <li><a href="{{ post.url }}" class="text-sm text-inkt/60 hover:text-inkt transition-colors leading-snug">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+      <a href="{{ t_footer_blog_url }}" class="inline-block mt-4 text-sm font-medium text-viridiaan hover:underline">{{ t_footer_blog_all }}</a>
+    </div>
+  </div>
+
+  <div class="border-t border-inkt/10">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex flex-wrap items-center justify-center md:justify-between gap-x-4 gap-y-2 text-xs text-inkt/60 text-center">
+      <span>© 2026 FortCRM</span>
+      <button id="cookie-settings-link" class="underline hover:text-inkt transition-colors">{{ t_cookie_prefs }}</button>
+    </div>
   </div>
 </footer>
 
